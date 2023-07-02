@@ -1,0 +1,67 @@
+/*
+Las transformaciones pueden ser de dos tipos, 2D o 3D.
+Para ambos tenemos una sola propiedad que recibe funciones como valor.
+Veremos combinadas con las transisiones y trasnformaciones.
+
+Transformaciones 2D: La propiedad es transform:
+
+transform:
+  traslate (x | x,y) traslateX() traslateY()
+  Valores positivos -> derecha abajo
+  Valores negativos -> izquierda arriba
+
+  scale(x=y | x,y) | scaleX() | scaleY()
+
+  skew(x=y | x,y) | skewX(angle) | skewY(angle)
+
+  rotate(angle)
+
+En CSS tenemos 4 formas de dar ángulos:
+
+- deg -> 360deg -> grados sexagesimales.
+- grad -> 400grad -> Es una unidad de medida de ángulos planos.
+- rad -> 6.2786rad -> Es una unidad de medida de ángulos en SI.
+- turn -> 2turn -> turn es el numero de vueltas.
+
+Cuando usamos ángulos_
+  valores positivos -> sentido horario.
+  valores negativos: sentido antihorario.
+
+NOTA:
+La propiedad skew() a dia de hoy se usa poco ya existe clip-path, ver el video de Falcon Master en you tube. La propiedad skew() mueve todo junto con el texto en cambio clip-path no.
+
+*/
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background-color: royalblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+
+  /* La combinamos con transition */
+  transition: transform 5s;
+}
+
+.box:hover {
+  background-color: green;
+  color: black;
+
+  /* Aqui tenemos la propiedad transforma al hacer hover */
+
+  /* transform: translateX(25%); */
+  /* transform: scale(1.1); */
+  /* transform: skew(10deg); */
+  transform: rotate(45deg);
+}
