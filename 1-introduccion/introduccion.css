@@ -1,0 +1,55 @@
+/*
+¿Que es una animación/transición?
+
+Explicacion W3C:
+Las animaciones proporcionan una forma de interpolar valores de propiedades CSS cuando cambian como resultado de cambios subyacentes en las propiedades.
+
+  "Cuando el estado inicial y el estado fnal de una propiedad sucede en un periodo de tiempo, lo llamamos animación."
+
+Fases de renderizado:
+Cuando cambiamos una propiedad el navegador tiene que calcular como dibujar los elementos.
+
+Existen tres fases a la hora de ver los elementos en pantalla:
+- Layout: Como se colocan los elementos en pantalla (consume muchos recursos).
+- Paint: Dibuja o pinta los pixeles de los elementos (consume recursos medios).
+- Composite: Compone y dibuja los elementos en pantalla (Es lo que menos cuesta al navegador).
+
+Propiedades animables:
+- No todas la propiedades son animables en CSS.
+- Para animar una propiedad el navegador tiene que poder calcular estados intermedio.
+- Todas las propiedades "NUMERICAS" "CON ESTADOS INTERMEDIOS" son animables.
+Por ejemplo: margin, padding, font-size, color .... etc.
+
+Tenemos de Google una tabla donde vemos en funcion de la propiedad y los tres estados lo que le cuesta al navegador calcular, lo podemos ver en el siguiente enlace::after
+
+    https://csstriggers.com
+
+Tabla muy interesante.
+
+Tambien tenemos una extension para VSCode para ver como impactan las animaciones sobre el navegador.
+
+    css-triggers de Kiss Tamas.
+
+*/
+
+/* Vemos el ejemplo */
+.box {
+  width: 300px;
+  height: 300px;
+  margin: 1em;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+}
+
+.box:hover {
+  background-color: lime;
+}
+
+/* Aqui vemos como aplicamos una animacion con la propiedad transition al color de fondo que lo haga en un tiempo no de golpe, la primera caja no tiene animacion */
+.animate {
+  transition: background-color 3s;
+}
