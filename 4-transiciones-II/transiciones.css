@@ -1,0 +1,64 @@
+/*
+
+En este ejemplo vamos a ver la propiedad:
+
+Transition timing function.
+
+ease significa desacelerar/frenar.
+
+- ease: La transicion comienza lentamente, acelera bruscamente y luego disminuye lentamente hasta el final.
+
+- ease-in: La transicion comienza lentamente, y luego se acelera progresivamente hasta el final.
+
+- ease-out: La transicion comienza abruptamente y luego se relentiza progresivamente hacia el final.
+
+- ease-in-out: La transicion comienza lentamente, se acelera y luego se relentiza hacia el final.
+
+- linear: La transicion se mueve de principio a fin a una velocidad constante.
+
+La funcion calc(): Nos sirve para hacer calculos.
+
+*/
+
+body {
+  margin: 0;
+}
+
+.container {
+  background-color: salmon;
+}
+
+.box {
+  width: 80px;
+  height: 60px;
+  font-size: 0.8em;
+  background-color: royalblue;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Aplicamos la transicion con delay despues del tiempo OJO */
+  transition: transform 2s 0.5s;
+}
+
+/* Cuando hago hover sobre el container les digo a las cajas que se trasladen en x */
+.container:hover .box {
+  /* Usamos la funcion cal() para calcular que la caja no se desborde */
+  transform: translateX(calc(100vw - 100%));
+}
+
+.ease {
+  transition-timing-function: ease;
+}
+.ease-in {
+  transition-timing-function: ease-in;
+}
+.ease-out {
+  transition-timing-function: ease-out;
+}
+.ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+.linear {
+  transition-timing-function: linear;
+}
