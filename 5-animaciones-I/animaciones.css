@@ -1,0 +1,53 @@
+/*
+Animaciones - I
+
+Las animaciones funcionan de una forma similar a las transiciones, pero con la principal diferencia de que estas no necesitan de un evento para iniciarse, son automaticas.
+
+Las animaciones tienen varias propiedades:
+- animation-name: Nombre de la animación, es obligatoria.
+
+- animation-duration: Duración de la animación, es obligatoria.
+
+- animation-iteration-count: Establece el número de veces que queremos repetir la animacion.
+Podemos ver en la documentacion de la MDN mas información:
+
+https://developer.mozilla.org/es/docs/Web/CSS/animation
+
+Los keyframes sirven para determinar las diferentes fases de la animacion. Son obligatorias.
+
+Se establecen con @keyframes nombre-animacion {}
+
+Dentro de los {} ponemos los selectores de tiempo, tenemos varias opciones que podemos ver en la documentación de la MDN:
+
+https://developer.mozilla.org/es/docs/Web/CSS/@keyframes
+
+Tenemos tambien el shorthand: animation: ;
+
+*/
+
+body {
+  margin: 0;
+  background-color: #2a363b;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.box {
+  width: 250px;
+  height: 250px;
+  background-color: royalblue;
+  /* Establecemos nuestra animación, a la caja,  de latido */
+  animation: beat 0.5s infinite;
+}
+
+/* Creamos el keyframe */
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
