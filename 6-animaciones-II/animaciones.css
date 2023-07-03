@@ -1,0 +1,94 @@
+/*
+
+Animaciones - II
+
+https://developer.mozilla.org/es/docs/Web/CSS/animation
+
+Las animaciones tienen mas propiedades:
+
+- animation-play-state: running | paused
+Establece si una animacion esta en ejecución o en pausa. Acepta esos dos valores.
+
+- animation-delay: s | ms
+Establece el tiempo de retardo que debe transcurrir antes de comenzar la animacion. El tiempo en segundos o milisegundos.
+
+- animation-direction: normal | reverse | alternate
+Establece el modo en el que se va a reproducir la animación. Acepta tres valores
+
+- animation-timig-function: ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(n) | cubic-beziers()
+Establece la forma en la que se movera la animacion en cada una de las interpolaciones. Acepta todos los valores anteriores.
+
+- animation-fill-mode: none | forwards | backwards | both
+none: La animación no aplicara los estilos ni antes ni despues de la ejecución.
+
+forwards: El objeto sobre el que se aplica la animación quedara con los valores y estilos que le aplique el ultimo keyframe de la ejecución de la animación.
+
+backwards: La animación aplicará los valores definidos en el primer keyframe lo mas pronto como se aplique al objeto y los retendra durante el tiempo que le pongamos en el animation-delay.
+
+both: Durante el periodo definido por animation-delay, la animacion aplicara los valores de propiedades definidos en el fotograma clave que comenzara la primera iteracion de la animacion.
+
+*/
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: royalblue;
+
+  /* Aqui tenemos la animacion */
+  animation-name: back;
+  animation-duration: 5s;
+  /* Muy usada con JS  */
+  /* animation-play-state: paused; */
+
+  /* animation-delay: 2s; */
+
+  /* Realiza la animación por pasos */
+  /* animation-timing-function: steps(2); */
+
+  /* Modo en que reproduce la animacion */
+  /* animation-direction: reverse; */
+
+  animation-fill-mode: forwards;
+  /* animation-fill-mode: both; */
+}
+
+@keyframes back {
+  0% {
+    background-color: greenyellow;
+  }
+
+  50% {
+    background-color: goldenrod;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.box {
+  height: 200px;
+  background-color: salmon;
+  display: flex;
+  align-items: center;
+}
+
+.children {
+  width: 100px;
+  height: 100px;
+  background-color: royalblue;
+  /* Aplicamos la animacion a la caja */
+  /* animation-name: translate;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+
+  /* Usando el shorthand */
+  animation: translate 3s linear infinite alternate;
+}
+
+@keyframes translate {
+  100% {
+    transform: translateX(calc(100vw - 100%));
+  }
+}
